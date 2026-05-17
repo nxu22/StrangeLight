@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; border-radius: 0 !important; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  background: #F0E4C8;
+  color: #2C1810;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg); }
+}
+
+@keyframes shake-once {
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(12deg); }
+  20%  { transform: rotate(-12deg); }
+  30%  { transform: rotate(10deg); }
+  40%  { transform: rotate(-10deg); }
+  50%  { transform: rotate(8deg); }
+  60%  { transform: rotate(-8deg); }
+  70%  { transform: rotate(5deg); }
+  80%  { transform: rotate(-5deg); }
+  90%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.lamp-sway {
+  animation: sway var(--sway-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--sway-delay, 0s);
+  transform-origin: center bottom;
+  display: block;
+}
+
+.lamp-item:hover .lamp-sway {
+  animation: shake-once 1s ease-out 1 forwards;
+}
